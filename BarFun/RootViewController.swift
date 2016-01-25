@@ -20,6 +20,8 @@ class RootViewController: UIViewController
         navigationController?.navigationBar.layer.borderColor = UIColor.cyanColor().CGColor
         navigationController?.navigationBar.layer.borderWidth = 1.0
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Present", style: .Plain, target: self, action: "present")
+
         addInnerView()
         print("rootView: \(view)")
     }
@@ -35,6 +37,12 @@ class RootViewController: UIViewController
             make in
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(10, 10, 10, 10))
         }
+    }
+
+    func present()
+    {
+        let nc = UINavigationController(rootViewController: FunViewController())
+        presentViewController(nc, animated: true, completion: nil)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle

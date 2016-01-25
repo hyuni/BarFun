@@ -106,7 +106,7 @@ class HeaderViewController : UIViewController
         // rootViewController.  They'll be pretty squashed if presented in the header.
         let alert = UIAlertController(title: "Alert", message: "Woot!", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        MainWindow.instance.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+        alert.show()
     }
 
     public

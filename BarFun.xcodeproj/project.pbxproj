@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FD6EBC021F04F7C6A5F6E15 /* Pods_BarFun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D742377D8185230E5BB38209 /* Pods_BarFun.framework */; };
+		5AF0E208A0B70D7B9268EAD7 /* UIAlertController+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0EB6A7DCB8267489419E9 /* UIAlertController+Show.swift */; };
 		5AF0E7F10C9DBB2D29900189 /* UINavigationBar+HeightFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E6F722079ED2C2B297B3 /* UINavigationBar+HeightFix.m */; };
 		5AF0EB53D1BA07FD6D8EAC92 /* FunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0EDD2B60D516019EB9DCB /* FunViewController.swift */; };
 		5AF0EE2A1EBBCB51546C81BB /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E266959BABFB500600C8 /* HeaderViewController.swift */; };
@@ -23,6 +24,7 @@
 		5AF0E6F722079ED2C2B297B3 /* UINavigationBar+HeightFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+HeightFix.m"; sourceTree = "<group>"; };
 		5AF0E75C9828304E4D1A51B7 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		5AF0EB61212068BF1A47EE91 /* UINavigationBar+HeightFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+HeightFix.h"; sourceTree = "<group>"; };
+		5AF0EB6A7DCB8267489419E9 /* UIAlertController+Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Show.swift"; sourceTree = "<group>"; };
 		5AF0EDD2B60D516019EB9DCB /* FunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunViewController.swift; sourceTree = "<group>"; };
 		63BECC121C558ADB00DFDAD4 /* BarFun-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BarFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		63E42A731C444920002E7F4A /* BarFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 				5AF0E266959BABFB500600C8 /* HeaderViewController.swift */,
 				5AF0EB61212068BF1A47EE91 /* UINavigationBar+HeightFix.h */,
 				5AF0E6F722079ED2C2B297B3 /* UINavigationBar+HeightFix.m */,
+				5AF0EB6A7DCB8267489419E9 /* UIAlertController+Show.swift */,
 			);
 			path = BarFun;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				5AF0EE7E9F1CA2DDC59E6C1B /* MainWindow.swift in Sources */,
 				5AF0EE2A1EBBCB51546C81BB /* HeaderViewController.swift in Sources */,
 				5AF0E7F10C9DBB2D29900189 /* UINavigationBar+HeightFix.m in Sources */,
+				5AF0E208A0B70D7B9268EAD7 /* UIAlertController+Show.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

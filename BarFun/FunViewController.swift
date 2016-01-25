@@ -18,10 +18,10 @@ class FunViewController: UIViewController
         view.layer.borderColor = UIColor.blackColor().CGColor
         view.layer.borderWidth = 2.0
 
-        preferredContentSize = CGSizeMake(100, 100)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Present", style: .Plain, target: self, action: "present")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .Plain, target: self, action: "dismiss")
 
         addCenterView()
-        addDismissButton()
     }
 
     func addCenterView()
@@ -37,21 +37,10 @@ class FunViewController: UIViewController
         }
     }
 
-    func addDismissButton()
+    func present()
     {
-        let button = UIButton()
-        button.setTitle("Dismiss", forState: .Normal)
-        button.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
-        button.backgroundColor = UIColor.blueColor()
-        view.addSubview(button)
-
-        button.snp_makeConstraints
-        {
-            make in
-            make.center.equalTo(self.view)
-            make.height.equalTo(50)
-            make.width.equalTo(100)
-        }
+        let nc = UINavigationController(rootViewController: FunViewController())
+        presentViewController(nc, animated: true, completion: nil)
     }
 
     func dismiss()

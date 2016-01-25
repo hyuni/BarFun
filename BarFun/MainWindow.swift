@@ -59,32 +59,9 @@ class MainWindow: UIWindow
         doubleTap.numberOfTapsRequired = 2
         self.addGestureRecognizer(doubleTap)
 
-        let tap = UITapGestureRecognizer(target: self, action: "present")
-        tap.numberOfTapsRequired = 1
-        tap.requireGestureRecognizerToFail(doubleTap)
-        self.addGestureRecognizer(tap)
-
         let swipe = UISwipeGestureRecognizer(target: self, action: "toggleHeader")
         swipe.direction = [.Down, .Up]
         self.addGestureRecognizer(swipe)
-    }
-
-    func present()
-    {
-        print("present")
-
-        let nc = UINavigationController(rootViewController: FunViewController())
-
-        guard let rootVC = rootViewController else { return }
-
-        if let presentedVC = rootVC.presentedViewController
-        {
-            presentedVC.presentViewController(nc, animated: true, completion: nil)
-        }
-        else
-        {
-            rootVC.presentViewController(nc, animated: true, completion: nil)
-        }
     }
 
     func dismiss()
