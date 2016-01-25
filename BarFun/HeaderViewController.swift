@@ -102,8 +102,9 @@ class HeaderViewController : UIViewController
     {
         print("header touched")
 
-        // Critical point: view controllers like alerts should be presented from MainWindow's
-        // rootViewController.  They'll be pretty squashed if presented in the header.
+        // Critical point: view controllers like alerts should not be presented from any view controller
+        // attached to the HeaderWindow, otherwise the alert will be squashed into the window.
+        // To avoid this, we present the alert from it's own window (see UIAlertController.show()).
         let alert = UIAlertController(title: "Alert", message: "Woot!", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
         alert.show()
