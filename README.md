@@ -1,5 +1,5 @@
 # BarFun
-Using multiple UIWindows to manage a global message bar
+*Experimental* attempt to use multiple UIWindows to manage a global message bar
 
 To see it in action:
 - swipe up/down to show/hide the header bar. 
