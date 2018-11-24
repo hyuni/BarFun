@@ -9,6 +9,11 @@
 import UIKit
 import SnapKit
 
+fileprivate extension Selector {
+    static let presentVC = #selector(RootViewController.presentVC)
+}
+
+
 class RootViewController: UIViewController
 {
     override func viewDidLoad()
@@ -17,10 +22,10 @@ class RootViewController: UIViewController
 
         title = "Root View Controller"
 
-        navigationController?.navigationBar.layer.borderColor = UIColor.cyanColor().CGColor
+        navigationController?.navigationBar.layer.borderColor = UIColor.cyan.cgColor
         navigationController?.navigationBar.layer.borderWidth = 1.0
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Present", style: .Plain, target: self, action: "present")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Present", style: .plain, target: self, action: Selector.presentVC)
 
         addInnerView()
         print("rootView: \(view)")
@@ -29,25 +34,25 @@ class RootViewController: UIViewController
     func addInnerView()
     {
         let innerView = UIView()
-        innerView.backgroundColor = UIColor.lightGrayColor()
+        innerView.backgroundColor = UIColor.lightGray
         view.addSubview(innerView)
 
-        innerView.snp_makeConstraints
+        innerView.snp.makeConstraints
         {
             make in
-            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(10, 10, 10, 10))
+            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         }
     }
 
-    func present()
+    @objc func presentVC()
     {
         let nc = UINavigationController(rootViewController: FunViewController())
-        presentViewController(nc, animated: true, completion: nil)
+        present(nc, animated: true, completion: nil)
     }
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle
     {
-        return .LightContent
+        return .lightContent
     }
 }
 

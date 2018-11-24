@@ -5,6 +5,11 @@
 
 import UIKit
 
+fileprivate extension Selector {
+    static let headerTouched = #selector(HeaderViewController.headerTouched)
+}
+
+
 public
 class HeaderViewController : UIViewController
 {
@@ -34,8 +39,8 @@ class HeaderViewController : UIViewController
     {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.yellowColor()
-        view.layer.borderColor = UIColor.blackColor().CGColor
+        view.backgroundColor = UIColor.yellow
+        view.layer.borderColor = UIColor.black.cgColor
         view.layer.borderWidth = 1.0
 
         addHeaderButton()
@@ -43,19 +48,19 @@ class HeaderViewController : UIViewController
     }
 
     public
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
 
         // Critical point: On app start, UIApplication.statusBarFrame is {0,0,0,0},
         // so we get the height from the view controller's topLayoutGuide instead.
-        adjustStatusBarHeight(self.topLayoutGuide.length)
+        adjustStatusBarHeight(height: self.topLayoutGuide.length)
     }
 
     public
     func adjustStatusBarHeight(height: CGFloat)
     {
-        statusBarBackgroundView.snp_updateConstraints
+        statusBarBackgroundView.snp.updateConstraints
         {
             make in
             make.height.equalTo(height)
@@ -66,12 +71,12 @@ class HeaderViewController : UIViewController
     private
     func addStatusBarBackgroundView()
     {
-        statusBarBackgroundView.backgroundColor = UIColor.whiteColor()
+        statusBarBackgroundView.backgroundColor = UIColor.white
 
         view.addSubview(statusBarBackgroundView)
 
-        let statusBarFrame = UIApplication.sharedApplication().statusBarFrame
-        statusBarBackgroundView.snp_makeConstraints
+        let statusBarFrame = UIApplication.shared.statusBarFrame
+        statusBarBackgroundView.snp.makeConstraints
         {
             make in
             make.top.left.right.equalTo(self.view)
@@ -83,12 +88,12 @@ class HeaderViewController : UIViewController
     func addHeaderButton()
     {
         let button = UIButton()
-        button.setTitle("Header", forState: .Normal)
-        button.addTarget(self, action: "headerTouched", forControlEvents: .TouchUpInside)
-        button.backgroundColor = UIColor.magentaColor()
+        button.setTitle("Header", for: .normal)
+        button.addTarget(self, action: Selector.headerTouched, for: .touchUpInside)
+        button.backgroundColor = UIColor.magenta
         view.addSubview(button)
 
-        button.snp_makeConstraints
+        button.snp.makeConstraints
         {
             make in
             make.left.right.bottom.equalTo(self.view)
@@ -97,7 +102,7 @@ class HeaderViewController : UIViewController
     }
 
     @objc
-    private
+    public
     func headerTouched()
     {
         print("header touched")
@@ -105,14 +110,13 @@ class HeaderViewController : UIViewController
         // Critical point: view controllers like alerts should not be presented from any view controller
         // attached to the HeaderWindow, otherwise the alert will be squashed into the window.
         // To avoid this, we present the alert from it's own window (see UIAlertController.show()).
-        let alert = UIAlertController(title: "Alert", message: "Woot!", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        let alert = UIAlertController(title: "Alert", message: "Woot!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         alert.show()
     }
 
-    public
-    override func preferredStatusBarStyle() -> UIStatusBarStyle
+    public override var preferredStatusBarStyle: UIStatusBarStyle
     {
-        return .LightContent
+        return .lightContent
     }
 }

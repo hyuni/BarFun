@@ -29,23 +29,23 @@ extension UIAlertController
 
     func show(animated: Bool)
     {
-        let alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
         self.alertWindow = alertWindow
 
         alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindowLevelAlert + 1
+        alertWindow.windowLevel = UIWindow.Level.alert + 1
         alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.presentViewController(self, animated: animated, completion: nil)
+        alertWindow.rootViewController?.present(self, animated: animated, completion: nil)
     }
 
     func show()
     {
-        show(true)
+        show(animated: true)
     }
 
     func dismiss()
     {
-        self.alertWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.alertWindow?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

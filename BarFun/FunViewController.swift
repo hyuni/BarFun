@@ -8,18 +8,24 @@
 
 import UIKit
 
+fileprivate extension Selector {
+    static let presentVC = #selector(FunViewController.presentVC)
+    static let dismissVC = #selector(FunViewController.dismissVC)
+}
+
+
 class FunViewController: UIViewController
 {
     override func viewDidLoad()
     {
         title = "BarFun"
 
-        view.backgroundColor = UIColor.redColor()
-        view.layer.borderColor = UIColor.blackColor().CGColor
+        view.backgroundColor = UIColor.red
+        view.layer.borderColor = UIColor.black.cgColor
         view.layer.borderWidth = 2.0
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Present", style: .Plain, target: self, action: "present")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .Plain, target: self, action: "dismiss")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Present", style: .plain, target: self, action: Selector.presentVC)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: Selector.dismissVC)
 
         addCenterView()
     }
@@ -27,24 +33,24 @@ class FunViewController: UIViewController
     func addCenterView()
     {
         let centerView = UIView()
-        centerView.backgroundColor = UIColor.orangeColor()
+        centerView.backgroundColor = UIColor.orange
         view.addSubview(centerView)
 
-        centerView.snp_makeConstraints
+        centerView.snp.makeConstraints
         {
             make in
-            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(10, 10, 10, 10))
+            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         }
     }
 
-    func present()
+    @objc func presentVC()
     {
         let nc = UINavigationController(rootViewController: FunViewController())
-        presentViewController(nc, animated: true, completion: nil)
+        present(nc, animated: true, completion: nil)
     }
 
-    func dismiss()
+    @objc func dismissVC()
     {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
